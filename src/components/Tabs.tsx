@@ -39,7 +39,7 @@ const TabList = ({ data, activeTabId, handleTabChange }: ITabListProps) => {
     event: React.KeyboardEvent<HTMLButtonElement>,
     id: number
   ) {
-    if (event.key === "ArrowLeft" && id > 1) {
+    if (event.key === "ArrowLeft" && id > 0) {
       return buttonsRefs[id - 1].current?.focus();
     }
     if (event.key === "ArrowRight" && id < data.length) {
