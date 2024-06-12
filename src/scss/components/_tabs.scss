@@ -1,0 +1,103 @@
+@use "sass:map";
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as *;
+
+.tabs {
+
+    &__tablist {
+        list-style: none;
+        padding-left: 0;
+
+        li  {
+            width: 100%;
+            border-top: 1px solid lighten(map.get(var.$colors,grayish-blue),25%);
+
+            &:last-of-type {
+                border-bottom: 1px solid lighten(map.get(var.$colors,grayish-blue),25%);
+            }
+        }
+    }
+
+    &__button {
+        position:relative;
+        color: var(--color-grayish-blue);
+        background-color: transparent;
+        border: none;
+        padding-block: .8rem;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);  
+            width: 0;
+            border-bottom: 4px solid var(--color-soft-red);
+            transition: width .25s ease;
+        }
+
+        &--opened {
+            color: var(--color-very-dark-blue);
+
+            &::after {
+                width: 80%;            
+            }
+        } 
+        
+        &:hover {
+            color: var(--color-soft-red);
+        }
+    }
+
+    &__panel {
+        padding-block: 2rem;
+        opacity: 1;
+        transition: opacity .5s ease;
+
+        @starting-style {
+            opacity: 0;
+        }
+    }
+
+    &__title {
+        margin-top: 3rem;
+    }
+
+    &__row {
+        gap: 5rem;
+        min-height: 400px;
+    }
+}
+
+@include mediaQuery(map.get(var.$breakpoints, sm)) {
+    .tabs {
+
+        &__tablist {
+            display:flex;
+            margin-inline: auto;
+            max-width: 80%;
+
+            li  {
+                border-top: none;
+                border-bottom: 1px solid lighten(map.get(var.$colors,grayish-blue),25%);
+            }
+        }
+
+        &__button {
+            width: 100%;
+
+            &--opened::after {
+                width: 100%;
+            }
+        }
+
+        &__panel {
+            text-align: left;
+            padding-top: 0;
+
+            p {
+                max-width: 400px;
+            }
+        }
+    }
+}

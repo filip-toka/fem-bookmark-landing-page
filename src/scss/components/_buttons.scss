@@ -1,0 +1,41 @@
+@use "sass:map";
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as *;
+
+.btn {
+    display: inline-block;
+    border-radius: 5px;
+    padding: .8rem;
+    text-decoration: none;
+    font-size: .9rem;
+    line-height: normal;
+    border: 1px solid transparent;
+}
+
+.btn--primary {
+    background-color: var(--color-soft-blue);
+    color: #fff;
+
+    &:hover {
+        background-color: #fff;
+        color: var(--color-soft-blue);
+        border: 1px solid var(--color-soft-blue);
+    }
+}
+
+.btn--secondary {
+    background-color: lighten(map.get(var.$colors, grayish-blue), 30%);
+    color: var(--color-very-dark-blue);
+    box-shadow: 0px 5px 8px -5px #9f9c9c;
+
+    &:hover {
+        background-color: #fff;
+        color: var(--color-very-dark-blue);
+        border: 1px solid var(--color-very-dark-blue);
+    }
+}
+
+.btn--danger {
+    background-color: var(--color-soft-red);
+    color: #fff;
+}

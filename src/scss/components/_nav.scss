@@ -1,0 +1,123 @@
+@use "sass:map";
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as *;
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1rem;
+}
+
+.primary-nav {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position:fixed;
+    left: 0;
+    top: 0;
+    transform: translateY(-150%);
+    list-style: none;
+
+    &__link {
+        display: inline-block;
+        width: 100%;
+        padding-block: .8rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #fff;
+        border-top: 1px solid var(--color-grayish-blue);
+
+        &:hover {
+            color: var(--color-soft-red);
+        }
+
+        &--login-button {
+            margin-top: .6rem;
+            border-radius: 5px;
+            border: 1px solid #fff;
+        }
+    }
+
+    &--opened {
+        transform: translateY(0);
+        margin-top: 0;
+        padding: 2rem;
+        padding-top: 5rem;
+        background-color: rgba(map.get(var.$colors, very-dark-blue), .9);
+        height: 100vh;
+        width: 100vw;
+        z-index: 9998;
+
+        li:nth-child(4) {
+            padding-top: .6rem;
+            border-top: 1px solid var(--color-grayish-blue);
+        }
+
+        li:last-of-type {
+            margin-top: auto;
+            margin-inline: auto;
+        }
+    }
+}
+
+.btn--primary-nav-toggle {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    z-index: 9999;
+    width: 18px;
+    height: 15px;
+    background-image: url(/images/icon-hamburger.svg);
+
+    &.opened {
+        width: 16px;
+        background-image: url(/images/icon-close.svg);
+    }
+}
+
+
+@include mediaQuery(map.get(var.$breakpoints, md)) {
+    .navbar {
+        padding-block: 2rem;
+    }
+    .primary-nav {
+        position: relative;
+        transform: none;
+        align-items: center;
+        flex-direction: row;
+        gap: 2.4rem;
+        padding-left: 0;
+        margin: 0;
+
+        &__link {
+            color: var(--color-very-dark-blue);
+            border-top: none;
+            font-size: .9rem;
+    
+            &--login-button {
+                margin-top: 0;
+                border: none;
+                padding: 1.2rem 1.6rem;
+                color: #fff;
+                background-color: var(--color-soft-red);
+                border: 1px solid transparent;
+                line-height: 0;
+
+                &:hover {
+                    background-color: #fff;
+                    color: var(--color-soft-red);
+                    border: 1px solid var(--color-soft-red);
+                }
+            }
+        }
+
+        li:last-of-type {
+            display: none;
+        }
+    }
+
+    .btn--primary-nav-toggle {
+        display: none;
+    }
+}
