@@ -12,19 +12,19 @@ const DownloadSection = () => {
         </p>
         <div className="cards">
           <Card
-            iconFileName="/images/logo-chrome.svg"
+            iconFileName="./images/logo-chrome.svg"
             title="Add to Chrome"
             description="Minimum version 62"
             link={{ text: "Add & Install Extension", href: "#" }}
           />
           <Card
-            iconFileName="/images/logo-firefox.svg"
+            iconFileName="./images/logo-firefox.svg"
             title="Add to Firefox"
             description="Minimum version 55"
             link={{ text: "Add & Install Extension", href: "#" }}
           />
           <Card
-            iconFileName="/images/logo-opera.svg"
+            iconFileName="./images/logo-opera.svg"
             title="Add to Opera"
             description="Minimum version 46"
             link={{ text: "Add & Install Extension", href: "#" }}

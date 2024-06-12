@@ -11,7 +11,7 @@ const FeaturesSection = () => {
   const tabPanelsData = [
     {
       image: {
-        src: "/images/illustration-features-tab-1.svg",
+        src: "./images/illustration-features-tab-1.svg",
         alt: "",
         height: 346,
       },
@@ -22,7 +22,7 @@ const FeaturesSection = () => {
     },
     {
       image: {
-        src: "/images/illustration-features-tab-2.svg",
+        src: "./images/illustration-features-tab-2.svg",
         alt: "",
         height: 416,
       },
@@ -33,7 +33,7 @@ const FeaturesSection = () => {
     },
     {
       image: {
-        src: "/images/illustration-features-tab-3.svg",
+        src: "./images/illustration-features-tab-3.svg",
         alt: "",
         height: 380,
       },

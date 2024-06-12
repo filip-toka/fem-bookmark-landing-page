@@ -7,7 +7,7 @@ const HeroSection = () => {
         <div className="row hero">
           <div className="col-6">
             <img
-              src="/images/illustration-hero.svg"
+              src="./images/illustration-hero.svg"
               alt=""
               className="image-with-bg-shape"
             />
