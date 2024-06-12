@@ -83,31 +83,34 @@ const TabPanel = ({
   button,
 }: ITabsPanelProps) => {
   const isActiveTab = activeTabId === id ? true : false;
-  if (!isActiveTab) return;
   return (
     <div
-      className="tabs__panel"
+      className={`tabs__panel${isActiveTab ? " tabs__panel--active" : ""}`}
       id={`tab-panel-` + id}
       role="tabpanel"
       aria-labelledby={`button-` + id}
     >
       <div className="row tabs__row">
-        <div className="col-6">
-          <img
-            src={image.src}
-            alt={image.alt}
-            className="image-with-bg-shape"
-            height={image.height}
-          />
-          <div className="shape-left"></div>
-        </div>
-        <div className="col-6">
-          <h3>{titleText}</h3>
-          <p>{contentText}</p>
-          <Button href={button.href} className="btn--primary">
-            {button.text}
-          </Button>
-        </div>
+        {isActiveTab && (
+          <>
+            <div className="col-6">
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="image-with-bg-shape"
+                height={image.height}
+              />
+              <div className="shape-left"></div>
+            </div>
+            <div className="col-6">
+              <h3>{titleText}</h3>
+              <p>{contentText}</p>
+              <Button href={button.href} className="btn--primary">
+                {button.text}
+              </Button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

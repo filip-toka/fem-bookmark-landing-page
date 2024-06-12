@@ -50,12 +50,16 @@
     }
 
     &__panel {
+        display: none;
         padding-block: 2rem;
-        opacity: 1;
+        opacity: 0;
+        visibility: hidden;
         transition: opacity .5s ease;
 
-        @starting-style {
-            opacity: 0;
+        &--active {
+            display: block;
+            opacity: 1;
+            visibility: visible;
         }
     }
 
